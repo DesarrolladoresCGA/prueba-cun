@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">
+            <i class="bi bi-search"></i>
+        </span>
+        <input type="text" class="form-control" id="txtBuscar" placeholder="Buscar" aria-label="Username"
+            aria-describedby="basic-addon1" (change)="buscarPorNombre($event)" (click)="limpiar()">
+    </div>
+</div>
+<div class="row">
+    <div *ngFor="let pokemon of pokemons; let i = index;" class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="card mb-3 text-center">
+            <div class="text-center">
+                <img class="card-img-top" src="{{pokemon.img1}}" alt="Card image cap">
+            </div>
+
+            <div class="card-body bg-dark text-white">
+                <h3 class="card-title text-center fw-bold">{{ pokemon.name }}</h3>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a class="btn btn-secondary" (click)="viewDetails(pokemon.name)">Ver Pokémon</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="paginador">
+    <div class="d-flex aling-items-center justify-content-center">
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item" [class.disabled]="page === 1">
+                    <a class="page-link" (click)="changePage(page - 1)" href="#">Previous</a>
+                </li>
+                <!-- Mostrar solo las páginas dentro del rango -->
+                <li class="page-item d-none d-md-flex"
+                    *ngFor="let p of [].constructor(endPage - startPage + 1); let i = index"
+                    [class.active]="startPage + i === page">
+                    <a class="page-link" (click)="changePage(startPage + i)" href="#">{{ startPage + i }}</a>
+                </li>
+                <li class="page-item d-flex d-md-none">
+                    <a class="page-link px-3 active">{{page}}</a>
+                </li>
+                <li class="page-item" [class.disabled]="page === numPages">
+                    <a class="page-link" (click)="changePage(page + 1)" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

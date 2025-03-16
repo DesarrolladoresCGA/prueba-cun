@@ -1,0 +1,39 @@
+<div class="d-block d-md-flex aling-items-center justify-content-center gap-5">
+    <!-- Chat de Persona 1 -->
+    <div class="col-12 col-md-6 d-block">
+        <div class="chat-box border rounded p-2">
+            <h2 class="text-center">Persona 1</h2>
+            <div class="text-dark" *ngFor="let msg of mensajes"
+                [ngClass]="{ 'mensaje-enviado': msg.user === 'persona1', 'mensaje-recibido': msg.user === 'persona2' }">
+                <!--<strong>{{ msg.user }}:</strong> {{ msg.text }}-->
+                <strong></strong> {{ msg.text }}
+            </div>
+
+        </div>
+        <div class="input-box">
+            <input type="text" [(ngModel)]="mensajePersona1" placeholder="Escribe un mensaje..."
+                (keyup.enter)="enviarMensaje('persona1', 'persona2', mensajePersona1)" />
+            <button (click)="enviarMensaje('persona1', 'persona2', mensajePersona1)">Enviar</button>
+        </div>
+    </div>
+
+
+    <!-- Chat de Persona 2 -->
+    <div class=" col-12 col-md-6  d-block">
+        <div class="chat-box border rounded p-2">
+            <h2 class="text-center ">Persona 2</h2>
+            <div *ngFor="let msg of mensajes"
+                [ngClass]="{ 'mensaje-enviado': msg.user === 'persona2', 'mensaje-recibido': msg.user === 'persona1' }">
+                <strong class="text-dark">{{ msg.text }}</strong>
+            </div>
+            <br>
+
+        </div>
+        <div class="input-box">
+            <input type="text" [(ngModel)]="mensajePersona2" placeholder="Escribe un mensaje..."
+                (keyup.enter)="enviarMensaje('persona2', 'persona1', mensajePersona2)" />
+            <button (click)="enviarMensaje('persona2', 'persona1', mensajePersona2)">Enviar</button>
+        </div>
+    </div>
+
+</div>

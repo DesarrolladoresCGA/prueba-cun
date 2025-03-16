@@ -1,0 +1,20 @@
+.img-principal{
+    width: 500px;
+    max-height: 600px;
+}
+.descripcion{
+    background-color: black;
+}
+.img-p ,.img-p2{
+    border: 2px solid #CCC;
+    transition: transform 0.3s ease-in-out; 
+}
+
+.img-p:hover,
+.img-p2:hover{
+    transform: scale(1.03);
+    border: 2px solid red;
+}
+.img-p2{
+    max-width: 80px;
+}

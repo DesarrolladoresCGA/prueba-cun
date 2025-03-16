@@ -1,0 +1,120 @@
+<div class="text-dark">
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Nuevo Pokémon</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="frmCrearPokemon" (ngSubmit)="crearNuevoPokemon(frmCrearPokemon.value)">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <img [src]="imgPokemon" alt="" class="img-fluid rounded-circle img-pokemon">
+                                <input type="file" class="form-control" (change)="cargarimgPokemon($event)">
+                                <textarea name="image" id="image" formControlName="image" [hidden]="ocultar"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating mt-2 ">
+                                    <input type="text" name="name" id="name" class="form-control"
+                                        placeholder="Nombre Pokémon" formControlName="name">
+                                    <label class="form-label" for="name">Nombre Pokémon</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating mt-2 ">
+                                    <input type="text" name="group" id="group" class="form-control" placeholder="Group"
+                                        formControlName="group">
+                                    <label class="form-label" for="group">Group</label>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-floating mt-2 ">
+                                    <input type="text" name="type" id="type" class="form-control" placeholder="Type"
+                                        formControlName="type">
+                                    <label class="form-label" for="type">Type</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating mt-2 ">
+                                    <input type="text" name="slot" id="slot" class="form-control" placeholder="Slot"
+                                        formControlName="slot">
+                                    <label class="form-label" for="slot">Slot</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" id="btnCerrar"
+                                data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-success"
+                                [disabled]="frmCrearPokemon.invalid">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="text-dark">
+    <!-- Modal editar -->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Pokémon</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="frmUpdatePokemon" (ngSubmit)="editarPokemon(frmUpdatePokemon.value)">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <img [src]="imgPokemon" alt="" class="img-fluid rounded-circle img-pokemon">
+                                <input type="file" class="form-control" (change)="cargarimgPokemon($event)">
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating mt-2 ">
+                                    <input type="text" name="name" id="name" class="form-control"
+                                        placeholder="Nombre Pokémon" formControlName="name">
+                                    <label class="form-label" for="name">Nombre Pokémon</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating mt-2 ">
+                                    <input type="text" name="group" id="group" class="form-control" placeholder="Group"
+                                        formControlName="group">
+                                    <label class="form-label" for="group">Group</label>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-floating mt-2 ">
+                                    <input type="text" name="type" id="type" class="form-control" placeholder="Type"
+                                        formControlName="type">
+                                    <label class="form-label" for="type">Type</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating mt-2 ">
+                                    <input type="text" name="slot" id="slot" class="form-control" placeholder="Slot"
+                                        formControlName="slot">
+                                    <label class="form-label" for="slot">Slot</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <textarea name="image" id="image" formControlName="image" [hidden]="ocultar"></textarea>
+                            <input type="hidden" formControlName="id">
+                            <button type="button" class="btn btn-secondary" id="btnCerrar"
+                                data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-success"
+                                [disabled]="frmUpdatePokemon.invalid"  data-bs-dismiss="modal">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div>
+    <div class="row" *ngFor="let p of pokemons">
+        <h1 class="text-center text-warning p-2 my-5 fw-bold fs-1">Pokémon</h1>
+        <div class="row ">
+            <div class="col-12 col-xl-9 d-flex">
+                <div class="col-1 d-none d-md-block">
+                    <img *ngIf="p.img1 !== null" class="img-p m-1" src="{{p.img1}}" (click)="cmabiarImange(p.img1)" alt="{{p.img1}}">
+                    <img *ngIf="p.img2 !== null" class="img-p m-1" src="{{p.img2}}" (click)="cmabiarImange(p.img2)" alt="{{p.img2}}">
+                    <img *ngIf="p.img3 !== null" class="img-p m-1" src="{{p.img3}}" (click)="cmabiarImange(p.img3)" alt="{{p.img3}}">
+                    <img *ngIf="p.img4 !== null" class="img-p m-1" src="{{p.img4}}" (click)="cmabiarImange(p.img4)" alt="{{p.img4}}">
+                    <img *ngIf="p.img5 !== null" class="img-p m-1" src="{{p.img5}}" (click)="cmabiarImange(p.img5)" alt="{{p.img5}}">
+                    <img *ngIf="p.img6 !== null" class="img-p m-1" src="{{p.img6}}" (click)="cmabiarImange(p.img6)"alt="{{p.img6}}">
+                    <img *ngIf="p.img7 !== null" class="img-p m-1" src="{{p.img7}}" (click)="cmabiarImange(p.img7)" alt="{{p.img7}}">
+                    <img *ngIf="p.img8 !== null" class="img-p m-1" src="{{p.img8}}" (click)="cmabiarImange(p.img8)" alt="{{p.img8}}">
+                </div>
+                <div class="col-12 col-md-11 d-flex aling-items-center justify-content-center ">
+                    <img class="img-principal" [src]="imgPrin" alt="">
+                </div>
+            </div>
+            <div class="d-flex  d-md-none aling-items-center justify-content-center mb-5">
+                <div class="row d-flex aling-items-center justify-content-center text-center ">
+                    <img *ngIf="p.img1 !== null" class="col img-p2 m-1" src="{{p.img1}}" (click)="cmabiarImange(p.img1)" alt="{{p.img1}}">
+                    <img *ngIf="p.img2 !== null" class="col img-p2 m-1" src="{{p.img2}}" (click)="cmabiarImange(p.img2)" alt="{{p.img2}}">
+                    <img *ngIf="p.img3 !== null" class="col img-p2 m-1" src="{{p.img3}}" (click)="cmabiarImange(p.img3)" alt="{{p.img3}}">
+                    <img *ngIf="p.img4 !== null" class="col img-p2 m-1" src="{{p.img4}}" (click)="cmabiarImange(p.img4)" alt="{{p.img4}}">
+                    <img *ngIf="p.img5 !== null" class="col img-p2 m-1" src="{{p.img5}}" (click)="cmabiarImange(p.img5)" alt="{{p.img5}}">
+                    <img *ngIf="p.img6 !== null" class="col img-p2 m-1" src="{{p.img6}}" (click)="cmabiarImange(p.img6)" alt="{{p.img6}}">
+                    <img *ngIf="p.img7 !== null" class="col img-p2 m-1" src="{{p.img7}}" (click)="cmabiarImange(p.img7)" alt="{{p.img7}}">
+                    <img *ngIf="p.img8 !== null" class="col img-p2 m-1" src="{{p.img8}}" (click)="cmabiarImange(p.img8)" alt="{{p.img8}}">
+                </div>
+            </div>
+            <div class="col-12 col-xl-3 text-center pt-2 ">
+                <div class="d-flex aling-items-center justify-content-center justify-content-xl-start ">
+                    <h3 class="mb-5">Descripción</h3>
+                </div>
+                <div  class="d-flex aling-items-center justify-content-center justify-content-xl-start gap-2" >
+                    <h4>Name: </h4>
+                    <h4 class="text-secondary">{{p.name}}</h4>
+                </div>
+                <div  class="d-flex aling-items-center justify-content-center justify-content-xl-start  gap-2" >
+                    <h4>Group: </h4>
+                    <h4 class="text-secondary">{{p.group}}</h4>
+                </div>
+                <div  class="d-flex aling-items-center justify-content-center justify-content-xl-start  gap-2" >
+                    <h4>Type: </h4>
+                    <h4 class="text-secondary">{{p.type}}</h4>
+                </div>
+                <div class="d-flex aling-items-center justify-content-center  justify-content-xl-start  gap-2" >
+                    <h4>Slot: </h4>
+                    <h4 class="text-secondary">{{p.slot}}</h4>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

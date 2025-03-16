@@ -1,0 +1,20 @@
+
+<div class="d-flex aling-items-center justify-content-center">
+    <div class="col-6 border rounded p-5 mt-5">
+        <h1 class="text-center my-5">Login</h1>
+        <form [formGroup]="frmLogin" (ngSubmit)="login(frmLogin.value)" class="text-dark">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" placeholder="Usuario" formControlName="usuario">
+                <label for="nombre">Usuario</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" placeholder="Password" formControlName="password">
+                <label for="nombre">Password</label>
+            </div>
+            <div class="text-center">
+                <input type="submit" class="btn btn-secondary " [disabled]="frmLogin.invalid" value="Inciar Sesión" >
+            </div>
+
+        </form>
+    </div>
+</div>

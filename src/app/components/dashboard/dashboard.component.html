@@ -1,0 +1,62 @@
+<h1 class="mb-5">Bienvenido {{nameUser}}</h1>
+<div class="d-flex aling-items-center justify-content-start mb-5">
+  <button class="btn btn-success mb-4 mb-md-0" id="btn-tabla" data-bs-toggle="modal"
+      data-bs-target="#exampleModal">Crear Pokémon</button>
+</div>
+<app-modal (datosEnviados)="traerPokemos()"  [idPokemon]="idPokemon"></app-modal>  
+<div class="row">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Group</th>
+            <th scope="col">Type</th>
+            <th scope="col">Accion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor ="let p of pokemos">
+            <td>{{p.id_pokemon}}</td>
+            <td><img src="{{url}}{{p.image}}" class="img-table rounded-circle"></td>
+            <td>{{p.name}}</td>
+            <td>{{p.group}}</td>
+            <td>{{p.type}}</td>
+           
+            <td>
+              <div class=" d-flex gap-1">
+                <button class="btn btn-warning" (click)="traerPokemonPorId(p.id_pokemon)"><i class="bi bi-pencil-square text-white" data-bs-toggle="modal" data-bs-target="#exampleModal2" ></i></button>
+                <button class="btn btn-danger"  (click)="eliminarPokemon(p.id_pokemon)"><i class="bi bi-trash-fill" ></i></button>
+              </div>
+
+            </td>
+          </tr>
+        
+        </tbody>
+      </table>
+</div>
+<div class="row" >
+  <div class="d-flex aling-items-center justify-content-center">
+      <nav aria-label="...">
+          <ul class="pagination">
+            <li class="mx-3 mt-2">{{page}} - {{endPage}} of {{totalRegi}}</li>
+              <li class="page-item" [class.disabled]="page === 1">
+                  <a class="page-link" (click)="changePage(page - 1)">Previous</a>
+              </li>
+              <!-- Mostrar solo las páginas dentro del rango -->
+              <li class="page-item d-none d-md-flex"
+                  *ngFor="let p of [].constructor(endPage - startPage + 1); let i = index"
+                  [class.active]="startPage + i === page">
+                  <a class="page-link" (click)="changePage(startPage + i)" >{{ startPage + i }}</a>
+              </li>
+              <li class="page-item d-flex d-md-none">
+                  <a class="page-link px-3 active">{{page}}</a>
+              </li>
+              <li class="page-item" [class.disabled]="page === endPage">
+                  <a class="page-link" (click)="changePage(page + 1)">Next</a>
+              </li>
+          </ul>
+      </nav>
+  </div>
+</div>

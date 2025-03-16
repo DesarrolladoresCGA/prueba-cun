@@ -1,0 +1,9 @@
+{
+    "conexion":{
+        "server" :"localhost",
+        "user" : "postgres",
+        "password" : "root",
+        "database" :"db_cun",
+        "port" : "5432"
+    }
+}
